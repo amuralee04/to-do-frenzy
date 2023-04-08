@@ -14,7 +14,7 @@ app.use('/todos',todosRouter);
 const mongodb = "mongodb+srv://aaran:alpha@cluster0.grkodfd.mongodb.net/todos-database?retryWrites=true&w=majority";
 
 app.get('/', (req,res) => {
-    res.send('Welcome to servers');
+    res.send('Welcome to server');
 
 })
 
