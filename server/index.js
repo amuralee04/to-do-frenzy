@@ -14,12 +14,21 @@ app.use('/todos',todosRouter);
 const mongodb = "mongodb+srv://aaran:alpha@cluster0.grkodfd.mongodb.net/todos-database?retryWrites=true&w=majority";
 
 app.get('/', (req,res) => {
-    res.send('Welcome to server');
+    res.send('Welcome to servers');
 
 })
 
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(mongodb, { useUnifiedTopology: true }, { useNewUrlParser: true } )
-    .then( () => console.log(`server is running on port ${PORT}`))
+    .then( () => {
+        console.log("Connected to MongoDB");
+
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+          });
+
+    })
     .catch( err => console.log(err));
+
+
